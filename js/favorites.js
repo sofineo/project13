@@ -58,12 +58,13 @@ export class FavoriteView extends Favorites {
 
  addFavorite() {
   const btnFavorite = this.root.querySelector('.search-bar button')
+  const inputFavorite = this.root.querySelector('.search-bar input')
   btnFavorite.onclick = () => {
-    const { value } = this.root.querySelector('.search-bar input')
+    const { value } = inputFavorite
     this.toFavorite(value)
   }
-  this.root.querySelector('.search-bar input').addEventListener('keydown', keyEnter => {
-    if (keyEnter === 'Enter') {
+  inputFavorite.addEventListener('keydown', event => {
+    if (event.code === 'Enter') {
       const { value } = this.root.querySelector('.search-bar input')
       this.toFavorite(value)
     }
